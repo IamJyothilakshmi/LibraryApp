@@ -52,7 +52,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1><%=title%>
+        <h1>Add Book
           <p class="lead"></p>
         </h1>
       </div>
@@ -94,12 +94,29 @@
           
           <div class="row">    
           <form method="POST" action="/admin/add">
-              title:<input type="text" name="title"><br>
+              Title:<input type="text" name="title"><br>
               Author:<input type="text" name="author"><br>
               Genre:<input type="text" name="genre"><br>
               Image:<input type="file" name="image"><br>
               <button type="submit">Add</button>
           </form>
+          <!-- <form method="POST" action="/addBook/add">
+            <div class="mb-3 form-control">
+              <label for="Title">Title</label>
+            <input type="text" placeholder="Title" id="title" name="title"/>
+          </div>
+            <label for="Author">Author</label>
+            <input type="text" placeholder="Author" id="author" name="author"/>
+          </div>
+          <div class="mb-3 form-control">
+            <label for="Genre">Genre</label>
+            <input type="text" placeholder="Genre" id="genre" name="genre"/>
+          </div>
+          <label for="Image">Image</label>
+            <input type="file" placeholder="image" id="image" name="image"/>
+          </div>
+          <button type="submit">Add</button>
+          </form> -->
           </div>
           
           <hr>

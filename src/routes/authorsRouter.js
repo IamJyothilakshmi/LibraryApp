@@ -1,54 +1,61 @@
 const express=require("express");
-// const adminRouter =express.Router();
+
+const Authorsdata = require('../model/Authorsdata')
 const authorsRouter=express.Router();
+
 function router(nav){
     var authors=[
         {
-            // title:'Money Heist',
-            author: 'Álex Pina',
-            // genre: 'Crime Thriller',
-            img: 'moneyheist.jpg'
+             title:'Álex Pina',
+            author: 'Money Heist',
+            //  genre: 'Crime Thriller',
+            imgAuthor: 'alex pina.jpg'
         },
         {
-           title:'Vampire Dairies',
-           author: 'L. J. Smith',
-           genre: ' Thriller',
-           img: 'vampiredairies.jpg'
+           title:'L. J. Smith',
+           author: 'Vampire Dairies',
+        //    genre: ' Thriller',
+           imgAuthor: 'LJSmith.jpg'
        },
        {
-        title:'Vampire Dairies',
-        author: 'L. J. Smith',
-        genre: ' Thriller',
-        img: 'vampiredairies.jpg'
+        title:'Jantje Friese',
+        author: 'Dark',
+        // genre: ' Thriller',
+        imgAuthor: 'Jantje Friese.jpg'
     },
     {
-        title:'Vampire Dairies',
-        author: 'L. J. Smith',
-        genre: ' Thriller',
-        img: 'vampiredairies.jpg'
+        title:'David Crane',
+        author: 'Friends',
+        // genre: ' Thriller',
+        imgAuthor: 'David Crane.jpg'
     }
     ]
 
 
  authorsRouter.get('/',function(req,res){
-     res.send("authors",
-     {
-         nav,
-    
-     title:'Library',
-     authors
- 
- });
- });
+
+    res.render("authors",
+    {
+        nav,
+    title:'Authors',
+    authors
+    })
+})
+
  authorsRouter.get('/:id',function (req,res) {
     const id=req.params.id
-    res.render('author',{
-       nav,
+   
+        res.render("author",
+        {
+            nav,
+            title:'library',
+            author:authors[id]
+        });
+        })
     
-    title:'Library',
-    author:authors[id] 
-    });
-});
+    
+
+
  return authorsRouter;
 }
  module.exports=router;

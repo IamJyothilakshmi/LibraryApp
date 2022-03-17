@@ -91,19 +91,21 @@
           
           
           <!--/stories-->
-           <%for(i=0;i<nav.length;i++){%> 
+           <%for(i=0;i<authors.length;i++){%> 
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="/images/<%=nav[i].img%>" style="width:100px;height:100px" class="img-circle"></a>
+               <a class="story-title" href="#"><img alt="" src="/images/<%=authors[i].imgAuthor%>" style="width:100px;height:100px" class="img-circle"></a> 
+              
             </div>
             <div class="col-md-10 col-sm-9">
-               <h3><%=nav[i].title%></h3> 
+               <h3><%=authors[i].title%></h3> 
               <div class="row">
                 <div class="col-xs-9">
-                   <h4><span class="label label-default"><%=nav[i].author%></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%=nav[i].genre%> . 
-                     <a href="/author/<%=nav[i].name%>" class="text-muted">Read More</a></small>
+                   <h4><span class="label label-default"><%=authors[i].author%></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%=authors[i].genre%> . 
+                      <!-- <a href="/author/<%=nav[i].name%>" class="text-muted">Read More</a></small>  -->
+                       <a href="/authors/<%=i%>" class="text-muted">Read More</a></small>  
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>
