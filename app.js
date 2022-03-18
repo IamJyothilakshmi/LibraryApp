@@ -5,6 +5,9 @@
   const path=require("path");
  const nav=[
     {
+        link:'/home',name:'Home'
+    },
+    {
         link:'/books',name:'Books'
     },
     {
@@ -29,11 +32,11 @@
  const adminRouter=require("./src/routes/adminRouter")(nav);
    const authorsRouter=require("./src/routes/authorsRouter")(nav);
    const addAuthorRouter=require("./src/routes/addAuthorRouter")(nav);
-//    const addauthorRouter
+
   const loginRouter = require('./src/routes/loginrouter')(nav);
   const signupRouter = require('./src/routes/signuprouter')(nav);
-//   const updateBooksRouter = require('./src/routes/updateBooksRouter')(nav);
-//   const updateAuthorsRouter = require('./src/routes/updateAuthorsRouter')(nav);
+//   const editBooksRouter = require('./src/routes/editBooksRouter')(nav);
+//   const editAuthorsRouter = require('./src/routes/editAuthorsRouter')(nav);
     app.use(express.urlencoded({extended:true}));
 
  
@@ -48,7 +51,7 @@
  app.use('/addAuthor',addAuthorRouter);
     app.use('/login',loginRouter); 
   app.use('/signup',signupRouter);
-//   app.use('/updateAuthors',updateAuthorsRouter);
+//   app.use('/editAuthors',editAuthorsRouter);
  app.get("/",function(req,res){
      res.render("index",
      {
