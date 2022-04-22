@@ -4,9 +4,7 @@
  
   const path=require("path");
  const nav=[
-    // {
-    //     link:'/home',name:'Home'
-    // },
+   
     {
         link:'/books',name:'Books'
     },
@@ -44,7 +42,7 @@
  app.use(express.static('./public'))
  app.set('view engine','ejs');
  app.set('views','./src/views');
-; 
+ 
  app.use('/books',booksRouter);
  app.use('/admin',adminRouter);
  app.use('/authors',authorsRouter);
@@ -61,22 +59,14 @@
 
     });
  });
-//  app.get("/authors",(req,res)=>{
-//      res.sendFile(path.join(__dirname,"views","authors.ejs"))
-//  })
-// authorsRouter.get('/',function(req,res){
-//     res.render("authors",{
-//         nav,
-//         title:'Authors'
-//     })
-// })
 
-//  app.listen(5000);
-//   console.log("Server is ready at port no 5000");
-const PORT = process.env.port || 5000;
+
+
+const PORT = process.env.PORT || 5000;
  app.listen(PORT,()=>{
      console.log(`LibraryApp is running on the ${PORT}`);
- })
+})
 // app.listen(process.env.PORT || 3000, function(){
 //   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env)
 // })
+
