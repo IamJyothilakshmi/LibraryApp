@@ -1,14 +1,23 @@
 const express = require('express');
 const signupRouter=express.Router();
-
-function router(nav){
+const user=require("../data/user")
     signupRouter.get('/',function(req,res){
         res.render('signup',
         {
-            nav,
-            title:'Sign Up'
+            // nav,
+            // title:'Sign Up'
         })
     })
-    return signupRouter;
-}
-module.exports=router;
+    signupRouter.get('/adduser',function(req,res){
+        var details={
+            
+            "uid":req.query["uid"],
+            "pwd":req.query["pwd"]
+        }
+         user.push(details);
+        // user.save();
+        res.redirect("/login");
+    })
+    
+
+module.exports=signupRouter;

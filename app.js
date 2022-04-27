@@ -1,8 +1,9 @@
- const express=require("express");
+ const express = require("express");
     //   const authorsRouter=express.Router();
- const app =new express();
- 
-  const path=require("path");
+ const app = new express();
+ const bodyParser = require("body-parser");
+  const path = require("path");
+//   const cors = require("cors");
  const nav=[
    
     {
@@ -31,18 +32,20 @@
    const authorsRouter=require("./src/routes/authorsRouter")(nav);
    const addAuthorRouter=require("./src/routes/addAuthorRouter")(nav);
 
-  const loginRouter = require('./src/routes/loginrouter')(nav);
-  const signupRouter = require('./src/routes/signuprouter')(nav);
+  const loginRouter = require('./src/routes/loginrouter');
+  const signupRouter = require('./src/routes/signuprouter');
 //   const editBooksRouter = require('./src/routes/editBooksRouter')(nav);
 //   const editAuthorsRouter = require('./src/routes/editAuthorsRouter')(nav);
     app.use(express.urlencoded({extended:true}));
 
  
     app.use(express.json())
- app.use(express.static('./public'))
+ app.use(express.static(path.join('./public')))
+//  app.use(cors());
  app.set('view engine','ejs');
  app.set('views','./src/views');
- 
+ app.use(bodyParser.urlencoded({extended:true}))
+
  app.use('/books',booksRouter);
  app.use('/admin',adminRouter);
  app.use('/authors',authorsRouter);
