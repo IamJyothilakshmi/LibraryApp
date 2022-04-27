@@ -32,8 +32,8 @@
    const authorsRouter=require("./src/routes/authorsRouter")(nav);
    const addAuthorRouter=require("./src/routes/addAuthorRouter")(nav);
 
-  const loginRouter = require('./src/routes/loginrouter');
-  const signupRouter = require('./src/routes/signuprouter');
+  const loginRouter = require('./src/routes/loginrouter')(nav);
+  const signupRouter = require('./src/routes/signuprouter')(nav);
 //   const editBooksRouter = require('./src/routes/editBooksRouter')(nav);
 //   const editAuthorsRouter = require('./src/routes/editAuthorsRouter')(nav);
     app.use(express.urlencoded({extended:true}));
@@ -52,7 +52,8 @@
  app.use('/addAuthor',addAuthorRouter);
     app.use('/login',loginRouter); 
   app.use('/signup',signupRouter);
-//   app.use('/editAuthors',editAuthorsRouter);
+//    app.use('/editAuthors',editAuthorsRouter);
+//    app.use('/editBooks',editBooksRouter);
  app.get("/",function(req,res){
      res.render("index",
      {
